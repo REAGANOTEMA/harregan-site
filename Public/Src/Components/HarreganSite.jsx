@@ -33,7 +33,7 @@ export default function HarreganSite() {
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-red-100 p-4 font-sans">
       {/* Header */}
       <header className="flex justify-between items-center py-4">
-        <img src="/logo.png" alt="Harregan Logo" className="w-28 h-auto" />
+        <img src="/logo.jpg" alt="Harregan Logo" className="w-28 h-auto" />
         <h1 className="text-2xl font-bold text-red-600">Harregan Hot Bites and Chips</h1>
       </header>
 
@@ -43,18 +43,28 @@ export default function HarreganSite() {
         <span>Located at Jinja, Lubas Market</span>
       </div>
 
-      {/* Gallery */}
-      <div className="grid md:grid-cols-3 gap-4">
+      {/* Products Gallery */}
+      <div className="grid md:grid-cols-3 gap-6">
         {products.map((item, index) => (
           <motion.div whileHover={{ scale: 1.05 }} key={index}>
             <Card className="rounded-2xl shadow-lg">
-              <img src={`/eats/${item.image}`} alt={item.name} className="rounded-t-2xl h-40 w-full object-cover" />
+              <img
+                src={`/eats/${item.image}`}
+                alt={item.name}
+                className="rounded-t-2xl h-40 w-full object-cover"
+                loading="lazy"
+              />
               <CardContent className="p-4">
                 <h2 className="text-xl font-bold text-red-700">{item.name}</h2>
                 <p className="text-gray-700 text-sm italic mb-1">{item.description}</p>
-                <p className="text-gray-800 font-semibold">{item.price}</p>
-                <a href={item.paymentLink} target="_blank" rel="noopener noreferrer">
-                  <Button className="mt-2 w-full bg-red-500 hover:bg-red-600 text-white">
+                <p className="text-gray-800 font-semibold mb-3">{item.price}</p>
+                <a
+                  href={item.paymentLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Order ${item.name} now`}
+                >
+                  <Button className="mt-2 w-full bg-red-500 hover:bg-red-600 text-white flex items-center justify-center">
                     <ShoppingCart className="mr-2" size={16} /> Order Now
                   </Button>
                 </a>
@@ -64,11 +74,11 @@ export default function HarreganSite() {
         ))}
       </div>
 
-      {/* Payment Note */}
+      {/* Payment Info */}
       <div className="mt-8 bg-white p-4 rounded-xl shadow">
         <h3 className="text-lg font-semibold mb-2">Secure Payments via Flutterwave</h3>
         <p className="text-sm text-gray-700">
-          Click the “Order Now” button to pay securely using Mobile Money, Visa, or Card. You’ll be redirected to a trusted Flutterwave checkout page.
+          Click the “Order Now” button to pay securely using <strong>Mobile Money, Visa, or Card</strong>. You’ll be redirected to a trusted Flutterwave checkout page supporting all these payment options.
         </p>
       </div>
 
