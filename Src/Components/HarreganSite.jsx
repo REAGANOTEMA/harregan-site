@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const products = [
   {
     name: 'Chicken Thigh/Breast',
-    image: 'chicken_thigh.jpg',
+    image: 'chicken_thigh.jpg',   // just the filename, no JSX here
     price: 'UGX 5,000',
     description: 'Juicy chicken thigh or breast grilled to perfection – perfect for a quick delicious bite.',
     paymentLink: 'https://flutterwave.com/pay/harregan-chicken-thigh'
